@@ -23,7 +23,7 @@ It follows a modular architecture with scalability, performance, and data integr
 ## 🛠️ Tech Stack
 
 - **Backend Framework**: [NestJS](https://nestjs.com/) (Node.js + TypeScript)
-- **Frontend Framework**: Not added here
+- **Frontend Framework**: Angular - Not added here
 - **Database**: MySQL
 - **Authentication**: JWT-based token auth
 - **Other Tools**: REST API, TypeORM
