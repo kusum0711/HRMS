@@ -26,7 +26,7 @@ It follows a modular architecture with scalability, performance, and data integr
 - **Frontend Framework**: Not added here
 - **Database**: MySQL
 - **Authentication**: JWT-based token auth
-- **Other Tools**: REST API, TypeORM, bcrypt, dotenv
+- **Other Tools**: REST API, TypeORM
 
 ---
 
