@@ -1,73 +1,87 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# Human Resource Management System (Backend)
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+A backend system for managing Human Resource functions like employee records, leave applications, departments, holidays, and user access control. This project was developed as part of a B.Tech final year project.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+> ⚠️ This repository contains only the **backend** built using **NestJS** and **MySQL**. The Angular frontend was developed separately and is not part of this repository.
 
-## Description
+---
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+## 📌 Project Overview
 
-## Installation
+The Human Resource Management System (HRMS) backend provides secure REST APIs to support:
+
+- Employee Management
+- Department Management
+- Leave and Holiday Management
+- User and Role Management
+- Authentication and Authorization
+
+It follows a modular architecture with scalability, performance, and data integrity in mind.
+
+---
+
+## 🛠️ Tech Stack
+
+- **Backend Framework**: [NestJS](https://nestjs.com/) (Node.js + TypeScript)
+- **Frontend Framework**: Not added here
+- **Database**: MySQL
+- **Authentication**: JWT-based token auth
+- **Other Tools**: REST API, TypeORM
+
+---
+
+## 🧩 Key Backend Features
+
+- 📂 **Modular Code Structure** using NestJS modules and services
+- 🔐 **User Authentication & Authorization** with role-based access control (Admin, HR, Manager, Employee)
+- 📄 **CRUD APIs** for Employees, Departments, Leaves, Holidays
+- 📆 **Leave Workflow** including approval/rejection flow
+- 🧾 **Data Models** aligned with a normalized ER diagram and enforced with validations
+- 🧪 **Tested with API testing tools** (Postman)
+
+---
+
+## ⚙️ Setup & Installation
+
+### 📋 Prerequisites
+
+- Node.js (v14+)
+- MySQL Server
+- npm
+
+### 📦 Installation Steps
 
 ```bash
-$ npm install
+# Clone repository
+git clone https://github.com/your-username/hrms-backend.git
+cd hrms-backend
+
+# Install dependencies
+npm install
+
+# Configure environment variables
+cp .env.example .env
+# Then update DB credentials and secrets inside .env
+
+# Run migrations (if using TypeORM CLI)
+npm run typeorm migration:run
+
+# Start development server
+npm run start:dev
 ```
 
-## Running the app
+## Directory Structure
 
-```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
 ```
-
-## Test
-
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+src/
+├── auth/              # JWT authentication logic (login, token)
+├── users/             # User entity, roles, and permission handling
+├── employees/         # Employee CRUD, personal info, status
+├── departments/       # Department creation, assignment, reports
+├── leaves/            # Leave requests, approval flow
+├── holidays/          # Holiday calendar setup and retrieval
+├── common/            # DTOs, guards, interceptors, pipes
+├── database/          # TypeORM configuration and DB connection
+├── app.module.ts      # Main application module
+└── main.ts            # Entry point of the NestJS app
 ```
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
